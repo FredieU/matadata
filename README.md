@@ -1,2 +1,3 @@
-# matadata
-Portfolio website
+# matagate
+
+Portfolio website using TypeScript and React.
