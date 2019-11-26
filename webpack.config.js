@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: 'production',
 
@@ -29,6 +31,10 @@ module.exports = {
     ],
   },
 
+  devServer: {
+    port: 9001,
+  },
+
   // When importing a module whose path matches one of the following, just
   // assume a corresponding global variable exists and use that instead.
   // This is important because it allows us to avoid bundling all of our
@@ -37,4 +43,10 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM',
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
 };
