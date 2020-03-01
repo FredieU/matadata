@@ -4,8 +4,8 @@
   "description": "Portfolio website to showcase projects and a styled CV",
   "private": true,
   "author": "Fredie Unabia",
-  "license": "ISC",
-  "homepage": "https://github.com/fredieu/matadata#readme",
+  "license": "MIT",
+  "homepage": "https://funabia.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fredieu/matadata.git"
@@ -17,9 +17,8 @@
     "build": "rimraf dist && webpack --config webpack.prod.js",
     "clean": "rimraf node_modules",
     "deploy": "yarn build && firebase deploy",
-    "eject": "react-scripts eject",
     "setup": "yarn clean && yarn",
-    "start": "react-scripts start",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "jest"
   },
   "dependencies": {
@@ -53,6 +52,8 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^25.2.1",
     "ts-loader": "^6.2.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpackbar": "^4.0.0"
   }
 }
