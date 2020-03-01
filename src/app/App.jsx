@@ -5,7 +5,8 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Under construction...coming soon!</p>
+        <h4>Under construction...coming soon!</h4>
+        <small>In the meantime, check out my social links.</small>
         <div
           class="LI-profile-badge"
           data-version="v1"
