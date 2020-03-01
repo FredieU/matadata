@@ -1,51 +1,44 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  mode: 'production',
-
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: 'source-map',
-
-  resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['.ts', '.tsx'],
+  entry: './src/index',
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.jsx$|js$/,
+        use: ['babel-loader'],
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
       },
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader',
+        test: /\.tsx$|ts$/,
+        use: ['babel-loader', 'ts-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-
-  devServer: {
-    port: 9001,
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: ['node_modules'],
   },
-
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
-
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: 'src/manifest.json',
+        to: '.',
+      },
+    ]),
     new HtmlWebpackPlugin({
+      inject: true,
       template: './src/index.html',
     }),
   ],

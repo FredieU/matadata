@@ -1,35 +1,58 @@
 {
-  "name": "matadata",
-  "version": "1.0.0",
-  "description": "Portfolio website",
-  "main": "index.js",
-  "scripts": {
-    "server": "webpack-dev-server --color --no-inline --open"
-  },
+  "name": "funabia-portfolio",
+  "version": "0.1.0",
+  "description": "Portfolio website to showcase projects and a styled CV",
+  "private": true,
+  "author": "Fredie Unabia",
+  "license": "ISC",
+  "homepage": "https://github.com/fredieu/matadata#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fredieu/matadata.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/fredieu/matadata/issues"
   },
-  "homepage": "https://github.com/fredieu/matadata#readme",
+  "scripts": {
+    "build": "rimraf dist && webpack --config webpack.prod.js",
+    "clean": "rimraf node_modules",
+    "deploy": "yarn build && firebase deploy",
+    "eject": "react-scripts eject",
+    "setup": "yarn clean && yarn",
+    "start": "react-scripts start",
+    "test": "jest"
+  },
   "dependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "firebase-tools": "^7.13.1",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "webpack-dev-server": "^3.9.0"
+    "react-scripts": "3.3.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "typescript": "~3.7.2",
+    "webpack": "^4.41.6",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@types/react": "^16.9.13",
-    "@types/react-dom": "^16.9.4",
-    "html-webpack-plugin": "^3.2.0",
-    "source-map-loader": "^0.2.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^25.1.3",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "babel-jest": "22.4.3",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "24.9.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.2.1",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.11"
   }
 }
