@@ -1,4 +1,4 @@
-# F. Unabia dev portfolio
+# Dev portfolio
 
 Portfolio website to showcase projects and a styled CV
 
